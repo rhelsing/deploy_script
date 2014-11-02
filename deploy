@@ -1,0 +1,9 @@
+#!/bin/bash
+
+rake assets:precompile RAILS_ENV=production
+rake assets:clean
+git add .
+git commit 'push to heroku'
+git push origin master
+git push heroku master
+heroku run rake db:migrate
